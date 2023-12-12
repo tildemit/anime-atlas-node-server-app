@@ -12,8 +12,14 @@ function ReviewRoutes(app) {
     const review = await dao.findReviewById(req.params.reviewId);
     res.json(review);
    };
+
+   const findReviewswByAnimeId = async (req, res) => {
+    const reviews = await dao.findReviewsbyAnimeId(req.params.animeId);
+    res.json(reviews);
+   };
   app.post("/api/reviews", createReview);
   app.get("/api/reviews/:reviewId", findReviewById);
+  app.get("/api/anime-reviews/:animeId", findReviewswByAnimeId);
   app.delete("/api/reviews/:reviewId", deleteReview);
 }
 export default ReviewRoutes;

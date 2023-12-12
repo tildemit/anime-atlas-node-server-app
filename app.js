@@ -2,6 +2,8 @@ import "dotenv/config";
 import session from "express-session";
 import UserRoutes from "./users/routes.js";
 import ReviewRoutes from "./reviews/routes.js";
+import AnimeRoutes from "./anime/routes.js";
+import CharacterRoutes from "./characters/routes.js";
 import express from 'express';
 import cors from "cors";
 import mongoose from "mongoose";
@@ -32,4 +34,6 @@ app.use(
 app.use(express.json());
 UserRoutes(app)
 ReviewRoutes(app)
+AnimeRoutes(app)
+CharacterRoutes(app)
 app.listen(process.env.PORT || 4000)
